@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "package": "at.gkgo.api.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "BlockApiLookupImplMixin",
+    "BlockItemMixin",
+    "BlockMixin",
+    "BlockStateMixin",
+    "BucketItemMixin",
+    "ClientConnectionMixin",
+    "ExampleMixin",
+    "FluidBlockMixin",
+    "MinecraftServerMixin",
+    "ServerPlayerEntityMixin",
+    "WorldChunkMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}
