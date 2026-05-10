@@ -7,12 +7,9 @@ version = providers.gradleProperty("mod_version").get()
 group = providers.gradleProperty("maven_group").get()
 
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
+	maven { setUrl("https://maven.nucleoid.xyz" as Any) } // You should have it
 }
+
 
 loom {
 	splitEnvironmentSourceSets()
@@ -39,7 +36,8 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	implementation("net.fabricmc.fabric-api:fabric-api:${providers.gradleProperty("fabric_api_version").get()}")
-	
+
+	implementation("eu.pb4:polymer-core:0.16.4+${providers.gradleProperty("minecraft_version").get()}")
 }
 
 tasks.processResources {
