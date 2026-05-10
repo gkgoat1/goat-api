@@ -1,4 +1,4 @@
-package at.gkgo.api;
+package at.gkgo.api.component;
 
 
 import com.mojang.serialization.Codec;
@@ -95,7 +95,7 @@ public class ChunkBlockPosPalette<T> {
                 }).fieldOf("entries").forGetter((x) -> x.contents)
         ).apply(i,ChunkBlockPosPalette::new));
     }
-    public static <A extends ByteBuf,T> StreamCodec<A,ChunkBlockPosPalette<T>> packetCodec(StreamCodec<A,T> base){
+    public static <A extends ByteBuf,T> StreamCodec<A,ChunkBlockPosPalette<T>> streamCodec(StreamCodec<A,T> base){
         return StreamCodec.composite(ByteBufCodecs.<A,Integer,T,HashMap<Integer,T>>map(HashMap::new,ByteBufCodecs.INT.cast(),base).map((m) -> {
 //                    Canon.LOGGER.info("deserializing palette");
             CrudeIncrementalIntIdentityHashBiMap<T> newPalette = CrudeIncrementalIntIdentityHashBiMap.create(m.size() + 1);
